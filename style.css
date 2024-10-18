@@ -30,11 +30,11 @@ html {
     border-right: 2px solid white;
     width: 18em;
     height: 100vh;
-    position: fixed; 
+    position: fixed;
     top: 0;
     left: 0;
-    opacity: 0; 
-    transition: opacity 0.5s ease; 
+    opacity: 0;
+    transition: opacity 0.5s ease;
 }
 
 .custom-font {
@@ -43,8 +43,8 @@ html {
     font-style: normal;
 }
 
-.presentation{
-    width: calc(100% - 18em); 
+.presentation {
+    width: calc(100% - 18em);
     margin-left: 18em;
 }
 
@@ -54,6 +54,7 @@ html {
     justify-content: center;
     align-items: center;
 }
+
 .name {
     font-size: 15vw;
     margin: 0;
@@ -68,11 +69,11 @@ html {
     transform: rotate(-90deg);
 }
 
-ul{
+ul {
     list-style-type: none;
 }
 
-li{
+li {
     font-size: 1.4em;
     margin-bottom: 5em;
     margin-top: 5em;
@@ -99,4 +100,23 @@ a::after {
 
 a:hover::after {
     width: 100%;
+}
+
+@media screen and (max-width:900px) {
+    .name {
+        transform: rotate(-90deg);
+        font-size: 20vh;
+        line-height: 180px;
+
+    }
+
+    .left-side {
+        display: none;
+    }
+
+    .presentation {
+        width: 100%;
+        margin-left: 0;
+
+    }
 }
