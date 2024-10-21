@@ -12,15 +12,15 @@ html {
     scroll-snap-type: y mandatory;
 }
 
+.custom-font {
+    font-family: "Archivo Black", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
 
 .slide {
     min-height: 100vh;
     scroll-snap-align: start;
-}
-
-.about {
-    display: flex;
-    flex-direction: row;
 }
 
 .left-side {
@@ -34,16 +34,25 @@ html {
     top: 0;
     left: 0;
     opacity: 0;
-    transition: opacity 0.5s ease;
+    transform: translateY(300px);
+
 }
 
-.custom-font {
-    font-family: "Archivo Black", sans-serif;
-    font-weight: 400;
-    font-style: normal;
+.reveal-left-side {
+    opacity: 1;
+    transition: opacity 0.3s ease, transform 0.2s ease;
+    transition-delay: 0.3s;
+    transform: translateY(0px);
+
 }
 
-.presentation {
+.hidde-left-side {
+    opacity: 0;
+    transform: translateY(300px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.right-side {
     width: calc(100% - 18em);
     margin-left: 18em;
 }
@@ -102,12 +111,17 @@ a:hover::after {
     width: 100%;
 }
 
+.navbar a.active {
+    text-decoration: underline;
+    color: yellow;
+}
+
 @media screen and (max-width:900px) {
     .name {
         transform: rotate(-90deg);
         font-size: 20vh;
         line-height: 180px;
-
+        margin-bottom: 50px;
     }
 
     .left-side {

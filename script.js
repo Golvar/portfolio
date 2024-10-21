@@ -1,12 +1,23 @@
-document.addEventListener("scroll", (event) => {
-    let scrollPosition = window.scrollY;
-    let windowHeight = window.innerHeight;
-    const leftSide = document.querySelector(".left-side");
-
-    // Si on est au-delà de la première slide, montrer la left-side
-    if (scrollPosition >= windowHeight) {
-        leftSide.style.opacity = 1; // Afficher la div
-    } else {
-        leftSide.style.opacity = 0; // Masquer la div
+const observe = new IntersectionObserver((entries) => {
+    for (const entry of entries) {
+        console.log(entry)
+        if (entry.isIntersecting) {
+            manageLeftSide(entry);
+        }
     }
-});
+})
+
+observe.observe(document.querySelector(".right-side"));
+observe.observe(document.querySelector(".intro"));
+
+function manageLeftSide(entry) {
+    const classList = entry.target.classList;
+    const leftSideClasses = document.querySelector('.left-side').classList;
+    if (classList.contains("right-side")) {
+        leftSideClasses.add("reveal-left-side");
+        leftSideClasses.remove("hidde-left-side");
+    } else if (classList.contains("intro")) {
+        leftSideClasses.remove("reveal-left-side");
+        leftSideClasses.add("hidde-left-side");
+    }
+}
